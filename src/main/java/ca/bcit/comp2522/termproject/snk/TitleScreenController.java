@@ -3,7 +3,7 @@ package ca.bcit.comp2522.termproject.snk;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class TitleScreenController {
     @FXML
     private Label welcomeText;
 
