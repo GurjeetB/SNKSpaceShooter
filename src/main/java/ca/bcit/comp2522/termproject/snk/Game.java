@@ -10,7 +10,7 @@ public class Game {
         private final ArrayList<Alien> aliens;
 
         public Game() {
-            playerShip = new PlayerShip();
+            playerShip = new PlayerShip(100, 320, 320);
             destructions = new ArrayList<>();
             bullets = new ArrayList<>();
             aliens = new ArrayList<>();

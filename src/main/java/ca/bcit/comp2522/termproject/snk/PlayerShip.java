@@ -1,48 +1,43 @@
 package ca.bcit.comp2522.termproject.snk;
 
-public class PlayerShip {
+public class PlayerShip extends Character {
 
-        private int x;
-        private int y;
-        private int width;
-        private int height;
+        private final int width;
+        private final int height;
 
-        public PlayerShip() {
-            x = 0;
-            y = 0;
+        public PlayerShip(int health, int positionX, int positionY) {
+            super(health, positionX, positionY);
             width = 0;
             height = 0;
-        }
-
-        public int getX() {
-            return x;
-        }
-
-        public void setX(int x) {
-            this.x = x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void setY(int y) {
-            this.y = y;
         }
 
         public int getWidth() {
             return width;
         }
 
-        public void setWidth(int width) {
-            this.width = width;
-        }
-
         public int getHeight() {
             return height;
         }
 
-        public void setHeight(int height) {
-            this.height = height;
-        }
+    @Override
+    Bullet shoot() {
+        return new Bullet();
+    }
+
+    @Override
+    int moveLeft() {
+        positionX -= 1;
+        return positionX;
+    }
+
+    @Override
+    int moveRight() {
+        positionX += 1;
+        return positionX;
+    }
+
+    @Override
+    Destruction explode() {
+        return new Destruction("player");
+    }
 }
