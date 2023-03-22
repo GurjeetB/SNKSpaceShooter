@@ -12,3 +12,4 @@ public class TitleScreenController {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 }
+
