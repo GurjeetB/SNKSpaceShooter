@@ -10,6 +10,27 @@ public abstract class Character {
      */
     int positionX;
 
+    public Character(int health, int positionX) {
+        this.health = health;
+        this.positionX = positionX;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
     /**
      * Creates a bullet at the Character's position.
      * @return A new instance of a bullet
