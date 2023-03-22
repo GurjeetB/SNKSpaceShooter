@@ -14,7 +14,14 @@ public class Bullet {
             damage = 0;
         }
 
-        public int getX() {
+    public Bullet(int x, int y, int speed, int damage) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.damage = damage;
+    }
+
+    public int getX() {
             return x;
         }
 
