@@ -9,10 +9,12 @@ public abstract class Character {
      * The character's horizontal position.
      */
     int positionX;
+    int positionY;
 
-    public Character(int health, int positionX) {
+    public Character(int health, int positionX, int positionY) {
         this.health = health;
         this.positionX = positionX;
+        this.positionY = positionY;
     }
 
     public int getHealth() {
@@ -29,6 +31,13 @@ public abstract class Character {
 
     public void setPositionX(int positionX) {
         this.positionX = positionX;
+    }
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
     }
 
     /**
