@@ -4,53 +4,51 @@ public class Bullet {
 
         private int x;
         private int y;
-        private int speed;
-        private int damage;
+        private final int speed;
+        private final int damage;
+        private final String bulletType;
 
         public Bullet() {
             x = 0;
             y = 0;
             speed = 0;
             damage = 0;
+            this.bulletType = "none";
         }
 
-    public Bullet(int x, int y, int speed, int damage) {
+    public Bullet(int x, int y, int speed, int damage, String bulletType) {
         this.x = x;
         this.y = y;
         this.speed = speed;
         this.damage = damage;
+        this.bulletType = bulletType;
     }
 
     public int getX() {
             return x;
         }
 
-        public void setX(int x) {
+    public void setX(int x) {
             this.x = x;
         }
 
-        public int getY() {
+    public int getY() {
             return y;
         }
 
-        public void setY(int y) {
+    public void setY(int y) {
             this.y = y;
         }
 
-        public int getSpeed() {
+    public int getSpeed() {
             return speed;
         }
 
-        public void setSpeed(int speed) {
-            this.speed = speed;
-        }
-
-        public int getDamage() {
+    public int getDamage() {
             return damage;
         }
 
-        public void setDamage(int damage) {
-            this.damage = damage;
-        }
-
+    public String getBulletType() {
+        return bulletType;
+    }
 }
