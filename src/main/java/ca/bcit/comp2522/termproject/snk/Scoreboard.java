@@ -1,42 +1,40 @@
 package ca.bcit.comp2522.termproject.snk;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 public class Scoreboard {
-
-        private int score;
-        private int highScore;
-
-        public Scoreboard() {
-            score = 0;
-            highScore = 0;
+    private static class ScoreSorter implements Comparator<Score> {
+        @Override
+        public int compare(Score o1, Score o2) {
+            return Integer.compare(o1.compareTo(o2), 0);
         }
+    }
+    private final ArrayList<Score> topTenScores; // Stores a bunch of Score objects
 
-        public int getScore() {
-            return score;
-        }
+    public Scoreboard() {
+        this.topTenScores = new ArrayList<>();
+    }
 
-        public void setScore(int score) {
-            this.score = score;
-        }
+    public ArrayList<Score> getTopTenScores() {
+        return topTenScores;
+    }
 
-        public int getHighScore() {
-            return highScore;
-        }
+    public Score getHighestScore() {
+        sortScoresByHighest();
+        return topTenScores.get(0);
+    }
 
-        public void setHighScore(int highScore) {
-            this.highScore = highScore;
-        }
+    private void sortScoresByHighest() {
+        topTenScores.sort(new ScoreSorter());
+    }
 
-        public void updateScore(int score) {
-            this.score += score;
+    public void createNewScore(int playerScore, String playerName) {
+        Score result = new Score(playerScore, playerName);
+        topTenScores.add(result);
+        sortScoresByHighest();
+        if (topTenScores.size() > 10) { // If topTenScores has more than ten cores
+            topTenScores.remove(topTenScores.size() + 1); // Removes the last entry from topTenScores
         }
-
-        public void updateHighScore() {
-            if (score > highScore) {
-                highScore = score;
-            }
-        }
-
-        public void resetScore() {
-            score = 0;
-        }
+    }
 }
