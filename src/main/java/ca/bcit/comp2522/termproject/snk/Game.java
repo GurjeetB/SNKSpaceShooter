@@ -16,14 +16,12 @@ public class Game {
         private final ArrayList<Destruction> destructions;
         private final ArrayList<Bullet> bullets;
         private final ArrayList<Alien> aliens;
-        private boolean move;
 
         private Game() {
             playerShip = new PlayerShip(100, 320, 320);
             destructions = new ArrayList<>();
             bullets = new ArrayList<>();
             aliens = new ArrayList<>();
-            move = false;
         }
 
         public PlayerShip getPlayerShip() {
@@ -40,21 +38,8 @@ public class Game {
         public ArrayList<Alien> getAliens() {
             return aliens;
         }
-
-        void onKeyPressed(KeyEvent event) {
-            switch (event.getCode()) {
-                case A -> {
-                    move = true;
-                }
-                case D -> {
-                    move = false;
-                }
-            }
-        }
         public void runAllGameLogic() {
             // Runs all possible game logic
-            if (move) {
-                System.out.println(move);
-            }
+            System.out.println("Game logic is running!");
         }
 }
