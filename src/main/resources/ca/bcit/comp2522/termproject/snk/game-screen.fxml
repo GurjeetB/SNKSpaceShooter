@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.shape.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.bcit.comp2522.termproject.snk.GameScreenController">
-
+   <children>
+      <Circle fill="DODGERBLUE" layoutX="287.0" layoutY="189.0" onKeyPressed="#onKeyPressed" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
 </AnchorPane>
