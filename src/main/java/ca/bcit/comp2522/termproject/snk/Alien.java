@@ -25,6 +25,6 @@ public class Alien extends Character {
 
     @Override
     Destruction explode() {
-        return new Destruction("alien");
+        return new Destruction(positionX, positionY, "alien");
     }
 }

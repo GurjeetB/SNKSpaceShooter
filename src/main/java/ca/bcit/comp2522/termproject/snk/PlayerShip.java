@@ -43,7 +43,7 @@ public class PlayerShip extends Character {
 
     @Override
     Destruction explode() {
-        return new Destruction("player");
+        return new Destruction(positionX, positionY, "player");
     }
 
 
