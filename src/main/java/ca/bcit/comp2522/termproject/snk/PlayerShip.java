@@ -5,6 +5,11 @@ public class PlayerShip extends Character {
         private final int width;
         private final int height;
 
+        private double damage;
+        private double speed;
+        private double powerUp;
+
+
         public PlayerShip(int health, int positionX, int positionY) {
             super(health, positionX, positionY);
             width = 0;
