@@ -11,6 +11,14 @@ public class Destruction {
         this.explosionType = explosionType;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public String getExplosionType() {
         return explosionType;
     }
