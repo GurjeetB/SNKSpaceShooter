@@ -1,6 +1,16 @@
 package ca.bcit.comp2522.termproject.snk;
 
 public class Explosion {
+    // add images for explosion animation
+    public static final String[] IMAGES = {
+            "explosion_1.png",
+            "explosion_2.png",
+            "explosion_3.png",
+            "explosion_4.png",
+            "explosion_5.png",
+            "explosion_6.png",
+    };
+
     // define explosion animation frames
     private final int[] frames = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     private int currentFrame;
