@@ -4,8 +4,8 @@ public class Bullet {
 
         private int x;
         private int y;
-        private final int speed;
-        private final int damage;
+        private int speed;
+        private int damage;
         private final String bulletType;
 
         public Bullet() {
@@ -16,12 +16,20 @@ public class Bullet {
             this.bulletType = "none";
         }
 
-    public Bullet(int x, int y, int speed, int damage, String bulletType) {
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
-        this.damage = damage;
+    public Bullet(int positonX, int positionY, String bulletType) {
+        this.x = positonX;
+        this.y = positionY;
         this.bulletType = bulletType;
+        switch (bulletType) {
+            case "player" -> {
+                this.speed = 15;
+                this.damage = 10;
+            }
+            case "alien" -> {
+                this.speed = 7;
+                this.damage = 50;
+            }
+        }
     }
 
     public int getX() {
