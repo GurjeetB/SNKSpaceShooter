@@ -16,8 +16,8 @@ public class Bullet {
             this.bulletType = "none";
         }
 
-    public Bullet(int positonX, int positionY, String bulletType) {
-        this.x = positonX;
+    public Bullet(int positionX, int positionY, String bulletType) {
+        this.x = positionX;
         this.y = positionY;
         this.bulletType = bulletType;
         switch (bulletType) {
