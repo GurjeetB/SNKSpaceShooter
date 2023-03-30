@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                ca.bcit.comp2522.termproject.snk/ca.bcit.comp2522.termproject.snk.HelloApplication
+                                ca.bcit.comp2522.termproject.snk/ca.bcit.comp2522.termproject.snk.MainDriver
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
