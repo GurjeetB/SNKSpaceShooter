@@ -26,6 +26,7 @@ public class PlayerShip extends Character {
 
     @Override
     Bullet shoot() {
+        System.out.println("BLAM!");
         return new Bullet();
     }
 
