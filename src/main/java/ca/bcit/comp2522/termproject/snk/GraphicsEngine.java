@@ -44,4 +44,5 @@ public class GraphicsEngine {
             allEntities.add(bulletSprite);
         });
     }
+
 }
