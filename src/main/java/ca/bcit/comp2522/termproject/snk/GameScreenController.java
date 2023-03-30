@@ -4,23 +4,24 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Circle;
 
 import java.net.URL;
-import java.security.Key;
-import java.util.Objects;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class GameScreenController implements Initializable {
-    Game game = Game.getInstance();
     ClassThatRunsAFunctionConstantly testClass = new ClassThatRunsAFunctionConstantly() {
         @Override
         public void tick(float secondsSinceLastFrame) {
-            game.runAllGameLogic();
+            runAllGameLogic();
             runAllJavaFXLogic();
         }
     };
     private boolean playerIsMoving;
+    private final PlayerShip playerShip = new PlayerShip(100, 320, 320);;
+    private final ArrayList<Destruction> destructions = new ArrayList<>();
+    private final ArrayList<Bullet> bullets = new ArrayList<>();
+    private final ArrayList<Alien> aliens = new ArrayList<>();
 
     @FXML
     public void onKeyPressed(KeyEvent event) {
@@ -36,10 +37,16 @@ public class GameScreenController implements Initializable {
         }
     }
 
+    /* These two functions run constantly. Like, ALL the time. */
     private void runAllJavaFXLogic() {
         if(playerIsMoving) {
             System.out.println("JavaFX is detecting a key press!");
         }
+    }
+
+    public void runAllGameLogic() {
+        // Runs all possible game logic
+        System.out.println("Game logic is running!");
     }
 
     @Override
