@@ -78,6 +78,26 @@ public class GameScreenController implements Initializable {
         bullets.forEach(Bullet::move);
         // Removes bullets if they're off-screen
         bullets.removeIf(bullet -> !bullet.isOnScreen(gameRoot.getWidth(), gameRoot.getHeight()));
+
+        bullets.forEach(bullet -> {
+            switch (bullet.getBulletType()) {
+                case "player" -> {
+                    aliens.forEach(alien -> {
+                        if (bullet.getCharacterHit(alien, 15)) {
+                            System.out.println("OW!");
+                            bullet.setY(-10);
+                        }
+                    });
+                }
+                case "alien" -> {
+                    if (bullet.getCharacterHit(playerShip, 15)) {
+                        System.out.println("OOF!");
+                        bullet.setY(-10);
+                    }
+                }
+            }
+        });
+
     }
 
     @Override
