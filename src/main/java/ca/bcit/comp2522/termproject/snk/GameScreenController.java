@@ -18,7 +18,7 @@ public class GameScreenController implements Initializable {
         }
     };
     private boolean playerIsMoving;
-    private final PlayerShip playerShip = new PlayerShip(100, 320, 320);;
+    private final PlayerShip playerShip = new PlayerShip(100, 320, 320);
     private final ArrayList<Destruction> destructions = new ArrayList<>();
     private final ArrayList<Bullet> bullets = new ArrayList<>();
     private final ArrayList<Alien> aliens = new ArrayList<>();
