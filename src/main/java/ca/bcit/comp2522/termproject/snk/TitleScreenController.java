@@ -1,15 +1,14 @@
 package ca.bcit.comp2522.termproject.snk;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+
+import java.io.IOException;
 
 public class TitleScreenController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    protected void onHelloButtonClick() throws IOException {
+        MainDriver.changeSceneFromFXML("game-screen.fxml");
     }
 }
 
