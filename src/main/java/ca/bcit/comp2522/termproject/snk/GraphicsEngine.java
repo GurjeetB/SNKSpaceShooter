@@ -4,6 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,13 @@ public class GraphicsEngine {
         alienList.forEach(alien -> {
             Circle alienSprite = new Circle(alien.getPositionX(), alien.getPositionY(), 20);
             allEntities.add(alienSprite);
+        });
+    }
+
+    public void renderBullets(ArrayList<Bullet> bulletList) {
+        bulletList.forEach(bullet -> {
+            Rectangle bulletSprite = new Rectangle(bullet.getX(), bullet.getY(), 5, 5);
+            allEntities.add(bulletSprite);
         });
     }
 }

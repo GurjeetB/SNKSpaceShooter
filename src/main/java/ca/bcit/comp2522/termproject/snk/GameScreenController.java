@@ -58,6 +58,7 @@ public class GameScreenController implements Initializable {
         graphicsEngine.refreshScreen();
         graphicsEngine.renderPlayer(playerShip);
         graphicsEngine.renderAliens(aliens);
+        graphicsEngine.renderBullets(bullets);
     }
 
     public void runAllGameLogic() {
