@@ -5,7 +5,7 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 /*
     Runs a function constantly.
-    Must implement tick().
+    Created using tutorial from https://edencoding.com/game-loop-javafx/.
 */
 public abstract class ClassThatRunsAFunctionConstantly extends AnimationTimer {
     long pauseStart;
