@@ -21,7 +21,7 @@ public class Alien extends Character {
     @Override
     Bullet shoot() {
         System.out.println("BOOM!");
-        return new Bullet();
+        return new Bullet(positionX, positionY, "alien");
     }
 
     @Override
