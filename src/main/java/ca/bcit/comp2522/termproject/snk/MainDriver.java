@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MainDriver extends Application {
     public static String APPLICATION_TITLE = "The Game!";
     public static String INITIAL_SCENE = "title-screen.fxml";
     private static Stage mainStage;
     public static void changeSceneFromFXML(String scenePath) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(scenePath));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainDriver.class.getResource(scenePath));
         Scene newScene = new Scene(fxmlLoader.load(), 640, 480);
         mainStage.setScene(newScene);
         newScene.getRoot().requestFocus();
