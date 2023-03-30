@@ -22,14 +22,22 @@ public class Bullet {
         this.bulletType = bulletType;
         switch (bulletType) {
             case "player" -> {
-                this.speed = 15;
+                this.speed = 10;
                 this.damage = 10;
             }
             case "alien" -> {
-                this.speed = 7;
+                this.speed = -5;
                 this.damage = 50;
             }
         }
+    }
+
+    public void move(){
+            y -= speed;
+    }
+
+    public boolean isOnScreen(double screenWidth, double screenHeight){
+            return x > 0 && x < screenWidth && y > 0 && y < screenHeight;
     }
 
     public int getX() {

@@ -1,9 +1,7 @@
 package ca.bcit.comp2522.termproject.snk;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -75,6 +73,11 @@ public class GameScreenController implements Initializable {
                 case -1 -> {playerShip.moveLeft();}
             }
         }
+
+        // Makes bullets move
+        bullets.forEach(Bullet::move);
+        // Removes bullets if they're off-screen
+        bullets.removeIf(bullet -> !bullet.isOnScreen(gameRoot.getWidth(), gameRoot.getHeight()));
     }
 
     @Override
