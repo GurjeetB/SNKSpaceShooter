@@ -2,6 +2,8 @@ package ca.bcit.comp2522.termproject.snk;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
+ import javafx.scene.image.Image;
+ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -29,6 +31,25 @@ public class GraphicsEngine {
                 playerShip.getPositionY(), 15);
         allEntities.add(playerSprite);
     }
+
+//public void renderPlayer(PlayerShip player) {
+//    // Load the player's sprite image ??? cannot get the correct path ???
+//    Image playerSprite = new Image("images/PlayerShip.png");
+//
+//    // Create an ImageView object for the player's sprite
+//    ImageView playerImageView = new ImageView(playerSprite);
+//
+//    // Set the position of the ImageView to the player's position
+//    playerImageView.setX(player.getPositionX());
+//    playerImageView.setY(player.getPositionY());
+//
+//    // Set the size of the ImageView
+//    playerImageView.setFitWidth(player.getWidth());
+//    playerImageView.setFitHeight(player.getHeight());
+//
+//    // Add the ImageView to the list of all entities
+//    allEntities.add(playerImageView);
+//}
 
     public void renderAliens(ArrayList<Alien> alienList) {
         alienList.forEach(alien -> {
