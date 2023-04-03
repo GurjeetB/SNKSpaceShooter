@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+
 import java.util.ArrayList;
 
 public class GraphicsEngine {
@@ -27,29 +28,23 @@ public class GraphicsEngine {
     }
 
     public void renderPlayer(PlayerShip playerShip) {
-        Circle playerSprite = new Circle(playerShip.getPositionX(),
-                playerShip.getPositionY(), 15);
-        allEntities.add(playerSprite);
-    }
+        // Load the player's sprite image
+        Image playerSprite = new Image("file:./src/main/resources/images/PlayerShip.png"); // Turns out, Java's working directory is the initial project folder???
+        // Create an ImageView object for the player's sprite
+        ImageView playerImageView = new ImageView(playerSprite);
 
-//public void renderPlayer(PlayerShip player) {
-//    // Load the player's sprite image ??? cannot get the correct path ???
-//    Image playerSprite = new Image("images/PlayerShip.png");
-//
-//    // Create an ImageView object for the player's sprite
-//    ImageView playerImageView = new ImageView(playerSprite);
-//
-//    // Set the position of the ImageView to the player's position
-//    playerImageView.setX(player.getPositionX());
-//    playerImageView.setY(player.getPositionY());
-//
-//    // Set the size of the ImageView
-//    playerImageView.setFitWidth(player.getWidth());
-//    playerImageView.setFitHeight(player.getHeight());
-//
-//    // Add the ImageView to the list of all entities
-//    allEntities.add(playerImageView);
-//}
+        // Set the position of the ImageView to the player's position
+        playerImageView.setX(playerShip.getPositionX() - (playerSprite.getWidth() / 2));
+        playerImageView.setY(playerShip.getPositionY());
+
+        // Set the ship's width and height
+        playerImageView.setFitWidth(playerSprite.getWidth());
+        playerImageView.setFitHeight(playerSprite.getHeight());
+        // Turns the ship to face the right way
+        playerImageView.setRotate(180);
+        // Add the ImageView to the list of all entities
+        allEntities.add(playerImageView);
+    }
 
     public void renderAliens(ArrayList<Alien> alienList) {
         alienList.forEach(alien -> {

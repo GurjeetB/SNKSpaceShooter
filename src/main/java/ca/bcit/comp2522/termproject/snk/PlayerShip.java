@@ -12,8 +12,8 @@ public class PlayerShip extends Character {
 
         public PlayerShip(int health, int positionX, int positionY) {
             super(health, positionX, positionY);
-            width = 0;
-            height = 0;
+            width = 45;
+            height = 31;
         }
 
         public int getWidth() {
