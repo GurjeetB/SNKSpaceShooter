@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -48,6 +50,7 @@ public class GameScreenController implements Initializable {
                 playerIsMoving = false;
             }
             case J -> {bullets.add(playerShip.shoot());}
+            case Y -> {stopGame();}
         }
     }
 
@@ -83,14 +86,15 @@ public class GameScreenController implements Initializable {
             switch (bullet.getBulletType()) {
                 case "player" -> {
                     aliens.forEach(alien -> {
-                        if (bullet.getCharacterHit(alien, 15)) {
+                        if (bullet.getCharacterHit(alien, 20)) {
+                            alien.setHealth(alien.getHealth() - bullet.getDamage());
                             System.out.println("OW!");
                             bullet.setY(-10);
                         }
                     });
                 }
                 case "alien" -> {
-                    if (bullet.getCharacterHit(playerShip, 15)) {
+                    if (bullet.getCharacterHit(playerShip, 20)) {
                         System.out.println("OOF!");
                         bullet.setY(-10);
                     }
@@ -100,6 +104,14 @@ public class GameScreenController implements Initializable {
 
     }
 
+    public void stopGame() {
+        try {
+            testClass.stop();
+            MainDriver.changeSceneFromFXML("results-screen.FXML");
+        } catch (IOException e) {
+            System.out.println("File not found!");
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         graphicsEngine = GraphicsEngine.getInstance(gameRoot);
