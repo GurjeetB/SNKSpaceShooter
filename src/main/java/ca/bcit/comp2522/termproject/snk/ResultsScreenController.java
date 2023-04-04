@@ -5,9 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,10 +37,28 @@ public class ResultsScreenController implements Initializable {
         }
     }
 
+    private Scoreboard getScoreboardFromFile(String filePath){
+        Scoreboard result = Scoreboard.getInstance();
+        try {
+            FileInputStream fileIn = new FileInputStream(filePath);
+            ObjectInputStream input = new ObjectInputStream(fileIn);
+            result = (Scoreboard) input.readObject();
+            input.close();
+            fileIn.close();
+            System.out.println("Opened scoreboard at" + filePath);
+        } catch (IOException e) {
+            System.out.println("could not open scoreboard");
+        } catch (ClassNotFoundException e) {
+            System.out.println("File is not a scoreboard");
+        }
+        return result;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Score scoreFromLastRun = new Score(ScoreStorage.getInstance().getScore(), ScoreStorage.getInstance().getName());
-        Scoreboard.getInstance().addScoreToList(scoreFromLastRun);
+        Scoreboard mostRecentScoreboard = getScoreboardFromFile("scoreboard.ser");
+        mostRecentScoreboard.addScoreToList(scoreFromLastRun);
         saveScoreboardToFile(Scoreboard.getInstance(), "scoreboard.ser");
     }
 }
