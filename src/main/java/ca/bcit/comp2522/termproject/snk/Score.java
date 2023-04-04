@@ -1,8 +1,8 @@
 package ca.bcit.comp2522.termproject.snk;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Score implements Comparable<Score> { // Stores each individual game score
+public class Score implements Comparable<Score>, Serializable { // Stores each individual game score
     private final int score; // The score that the player got
     private final String name; // The name of the player
 

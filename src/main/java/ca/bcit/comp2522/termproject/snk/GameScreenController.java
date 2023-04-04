@@ -92,7 +92,7 @@ public class GameScreenController implements Initializable {
                             if (alien.takeDamage(bullet.getDamage())) {
                                 playerScore += 10;
                                 destructions.add(alien.explode());
-                                System.out.println(playerScore);
+                                System.out.println("Score: " + playerScore);
                             }
                             bullet.setY(-10);
                         }
@@ -118,6 +118,7 @@ public class GameScreenController implements Initializable {
 
     public void stopGame() {
         try {
+            ScoreStorage.getInstance().setScore(playerScore);
             testClass.stop();
             MainDriver.changeSceneFromFXML("results-screen.FXML");
         } catch (IOException e) {
