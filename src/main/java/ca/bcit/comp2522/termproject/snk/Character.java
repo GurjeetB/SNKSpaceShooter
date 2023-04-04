@@ -41,6 +41,19 @@ public abstract class Character {
     }
 
     /**
+     * Deals damage to a character, then checks if their health has been depleted.
+     * @param damageDealt The amount of damage to deal. Must be positive.
+     * @return True if the character's health is now 0; else, False
+     */
+    public boolean takeDamage(int damageDealt) {
+        this.health -= damageDealt;
+        if (this.health <= 0) {
+            this.health = 0;
+        }
+        return this.health == 0;
+    }
+
+    /**
      * Creates a bullet at the Character's position.
      * @return A new instance of a bullet
      */

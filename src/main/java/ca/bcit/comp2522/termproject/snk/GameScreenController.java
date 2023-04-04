@@ -23,6 +23,7 @@ public class GameScreenController implements Initializable {
     };
     private boolean playerIsMoving;
     private int playerMovementDirection;
+    private int playerScore;
     private final PlayerShip playerShip = new PlayerShip(100, 320, 320);
     private final ArrayList<Destruction> destructions = new ArrayList<>();
     private final ArrayList<Bullet> bullets = new ArrayList<>();
@@ -87,21 +88,32 @@ public class GameScreenController implements Initializable {
                 case "player" -> {
                     aliens.forEach(alien -> {
                         if (bullet.getCharacterHit(alien, 20)) {
-                            alien.setHealth(alien.getHealth() - bullet.getDamage());
-                            System.out.println("OW!");
+                            ++playerScore;
+                            if (alien.takeDamage(bullet.getDamage())) {
+                                playerScore += 10;
+                                destructions.add(alien.explode());
+                                System.out.println(playerScore);
+                            }
                             bullet.setY(-10);
                         }
                     });
                 }
                 case "alien" -> {
                     if (bullet.getCharacterHit(playerShip, 20)) {
-                        System.out.println("OOF!");
+                        if (playerShip.takeDamage(bullet.getDamage())) {
+                            destructions.add(playerShip.explode());
+                            System.out.println("OOF!");
+                        }
                         bullet.setY(-10);
                     }
                 }
             }
         });
 
+        aliens.removeIf(alien -> alien.getHealth() == 0);
+        if (playerShip.getHealth() == 0) {
+            stopGame();
+        }
     }
 
     public void stopGame() {
@@ -114,6 +126,7 @@ public class GameScreenController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        playerScore = 0;
         graphicsEngine = GraphicsEngine.getInstance(gameRoot);
         testClass.start();
     }
