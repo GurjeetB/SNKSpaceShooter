@@ -53,6 +53,27 @@ public class GraphicsEngine {
         });
     }
 
+    //// this doesn't work.
+//public void renderAliens(ArrayList<Alien> alienList) {
+//        // Load the alien sprite image
+//        Image alienSprite = new Image("file:./src/main/resources/images/alienShip.png");
+//        alienList.forEach(alien -> {
+//            // Create an ImageView object for the alien sprite
+//        ImageView alienImageView = new ImageView(alienSprite);
+//
+//        // Set the position of the ImageView to the alien's position
+//        alienImageView.setX(alien.getPositionX() - (alienSprite.getWidth() / 2));
+//        alienImageView.setY(alien.getPositionY());
+//
+//        // Set the alien's width and height
+//        alienImageView.setFitWidth(alienSprite.getWidth());
+//        alienImageView.setFitHeight(alienSprite.getHeight());
+//        // Add the ImageView to the list of all entities
+//        allEntities.add(alienImageView);
+//    });
+//}
+
+
     public void renderBullets(ArrayList<Bullet> bulletList) {
         bulletList.forEach(bullet -> {
             Rectangle bulletSprite = new Rectangle(bullet.getX(), bullet.getY(), 5, 5);
