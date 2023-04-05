@@ -53,7 +53,7 @@ public class GraphicsEngine {
         });
     }
 
-    //// this doesn't work.
+    //// Attempt to render Alien image; this doesn't work.
 //public void renderAliens(ArrayList<Alien> alienList) {
 //        // Load the alien sprite image
 //        Image alienSprite = new Image("file:./src/main/resources/images/alienShip.png");
