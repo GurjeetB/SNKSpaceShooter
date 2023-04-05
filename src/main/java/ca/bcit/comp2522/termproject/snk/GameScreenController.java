@@ -29,6 +29,8 @@ public class GameScreenController implements Initializable {
     private final ArrayList<Bullet> bullets = new ArrayList<>();
     private final ArrayList<Alien> aliens = new ArrayList<>();
 
+    private int score = 0; // initialize score to 0
+
     @FXML
     public void onKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
@@ -129,6 +131,7 @@ public class GameScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         playerScore = 0;
         graphicsEngine = GraphicsEngine.getInstance(gameRoot);
+        GraphicsEngine.getInstance(gameRoot).renderScore(score); // added to render score
         testClass.start();
     }
 }

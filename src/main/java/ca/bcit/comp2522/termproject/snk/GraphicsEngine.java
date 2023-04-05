@@ -8,6 +8,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
+import javafx.scene.text.Text; // added to show score
+import javafx.scene.text.Font; // added to show score
+
 import java.util.ArrayList;
 
 public class GraphicsEngine {
@@ -80,5 +83,17 @@ public class GraphicsEngine {
             allEntities.add(bulletSprite);
         });
     }
+
+    // render score doesn't work. I don't know why.
+    public void renderScore(int score) {
+        // Create a Text object to display the score
+        Text scoreText = new Text("Score: " + score);
+        scoreText.setFont(new Font(20));
+        scoreText.setX(10);
+        scoreText.setY(30);
+        // Add the Text object to the list of all entities
+        allEntities.add(scoreText);
+    }
+
 
 }
