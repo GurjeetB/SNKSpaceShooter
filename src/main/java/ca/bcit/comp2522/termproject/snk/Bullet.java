@@ -1,6 +1,6 @@
 package ca.bcit.comp2522.termproject.snk;
 
-import java.util.ArrayList;
+import java.util.Objects;
 
 public class Bullet {
     private static boolean compareDeviation(int v1, int v2, int deviation){
@@ -76,5 +76,33 @@ public class Bullet {
 
     public String getBulletType() {
         return bulletType;
+    }
+
+    @Override
+    public String toString() {
+        return "Bullet{" +
+                "x=" + x +
+                ", y=" + y +
+                ", speed=" + speed +
+                ", damage=" + damage +
+                ", bulletType='" + bulletType + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bullet bullet = (Bullet) o;
+        return getX() == bullet.getX()
+                && getY() == bullet.getY()
+                && getSpeed() == bullet.getSpeed()
+                && getDamage() == bullet.getDamage()
+                && getBulletType().equals(bullet.getBulletType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getX(), getY(), getSpeed(), getDamage(), getBulletType());
     }
 }
