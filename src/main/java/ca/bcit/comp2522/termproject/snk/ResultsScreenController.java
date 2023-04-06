@@ -3,6 +3,7 @@ package ca.bcit.comp2522.termproject.snk;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -12,6 +13,7 @@ import java.util.ResourceBundle;
 public class ResultsScreenController implements Initializable {
     public AnchorPane gameRoot;
     public Button exit_button;
+    public Text yourScoreWas;
 
     public void stopGame(){
         // Write the score to the scoreboard
@@ -53,6 +55,7 @@ public class ResultsScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Score scoreFromLastRun = new Score(ScoreStorage.getInstance().getScore(), ScoreStorage.getInstance().getName());
+        yourScoreWas.setText(String.format("%s", scoreFromLastRun.getScore()));
         Scoreboard mostRecentScoreboard = getScoreboardFromFile("scoreboard.ser");
         mostRecentScoreboard.addScoreToList(scoreFromLastRun);
         System.out.println(mostRecentScoreboard);
