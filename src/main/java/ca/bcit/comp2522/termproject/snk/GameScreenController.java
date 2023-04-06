@@ -25,7 +25,7 @@ public class GameScreenController implements Initializable {
     private boolean playerIsMoving;
     private int playerMovementDirection;
     private int playerScore;
-    private final PlayerShip playerShip = new PlayerShip(100, 320, 320);
+    private final PlayerShip playerShip = new PlayerShip(100, 320, 370);
     private final ArrayList<Destruction> destructions = new ArrayList<>();
     private final ArrayList<Bullet> bullets = new ArrayList<>();
     private final ArrayList<Alien> aliens = new ArrayList<>();
@@ -70,7 +70,7 @@ public class GameScreenController implements Initializable {
         // Spawns a new alien if there is none
         if (aliens.size() == 0) {
             for (int i = 0; i <= RANDOMIZER.nextInt(1,6); i++) {
-                aliens.add(new Alien(50, RANDOMIZER.nextInt(0, 640), i * 50));
+                aliens.add(new Alien(50, RANDOMIZER.nextInt(0, 640), i * 50 + 20));
             }
         }
         // Makes aliens shoot if possible
