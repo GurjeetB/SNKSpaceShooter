@@ -70,9 +70,15 @@ public class GameScreenController implements Initializable {
         // Runs all possible game logic
         // Spawns a new alien if there is none
         if (aliens.size() == 0) {
-            aliens.add(new Alien(25, 100, 100));
+            aliens.add(new Alien(1, 100, 100));
         }
+        // Makes aliens shoot if possible
         aliens.stream().filter(Alien::isReadyToFire).forEach(alien -> bullets.add(alien.shoot()));
+        // Makes aliens switch movement direction if they move off-screen
+        aliens.stream().filter(alien -> alien.isOffScreen(gameRoot.getWidth())).forEach(Alien::toggleMovement);
+        // Makes aliens move
+        aliens.forEach(Alien::moveFromDirection);
+
         // Moves the ship around if a key's being pressed
         if(playerIsMoving) {
             switch (playerMovementDirection) {
