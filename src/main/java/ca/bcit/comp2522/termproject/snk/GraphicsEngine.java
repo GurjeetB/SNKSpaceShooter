@@ -60,17 +60,18 @@ public class GraphicsEngine {
     public void renderAliens(ArrayList<Alien> alienList) {
         // Load the alien sprite image
         Image alienSprite = new Image("file:./src/main/resources/images/alienShip.png");
+        // (Okay, so we MAY have forgotten to actually add this image to the GitHub...)
         alienList.forEach(alien -> {
             // Create an ImageView object for the alien sprite
         ImageView alienImageView = new ImageView(alienSprite);
 
         // Set the position of the ImageView to the alien's position
-        alienImageView.setX(alien.getPositionX() - (alienSprite.getWidth() / 2));
+        alienImageView.setX(alien.getPositionX() - 20);
         alienImageView.setY(alien.getPositionY());
 
         // Set the alien's width and height
-        alienImageView.setFitWidth(alienSprite.getWidth());
-        alienImageView.setFitHeight(alienSprite.getHeight());
+        alienImageView.setFitWidth(40);
+        alienImageView.setFitHeight(40);
         // Add the ImageView to the list of all entities
         allEntities.add(alienImageView);
     });
@@ -84,7 +85,6 @@ public class GraphicsEngine {
         });
     }
 
-    // render score doesn't work. I don't know why.
     public void renderScore(int score) {
         // Create a Text object to display the score
         Text scoreText = new Text("Score: " + score);
