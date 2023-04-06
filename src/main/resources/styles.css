@@ -1,0 +1,6 @@
+#background{
+    -fx-background-image: url("images/SpaceBackground.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 640 480;
+    -fx-background-position: center center;
+}
