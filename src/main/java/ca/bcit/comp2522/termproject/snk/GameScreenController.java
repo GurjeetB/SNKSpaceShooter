@@ -62,7 +62,7 @@ public class GameScreenController implements Initializable {
         graphicsEngine.renderPlayer(playerShip);
         graphicsEngine.renderAliens(aliens);
         graphicsEngine.renderBullets(bullets);
-        graphicsEngine.renderScore(playerScore);
+        graphicsEngine.renderScore(playerScore, playerShip);
     }
 
     public void runAllGameLogic() {
