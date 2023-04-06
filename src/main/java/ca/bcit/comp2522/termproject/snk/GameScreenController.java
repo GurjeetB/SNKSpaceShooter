@@ -29,8 +29,6 @@ public class GameScreenController implements Initializable {
     private final ArrayList<Bullet> bullets = new ArrayList<>();
     private final ArrayList<Alien> aliens = new ArrayList<>();
 
-    private int score = 0; // initialize score to 0
-
     @FXML
     public void onKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
@@ -101,7 +99,6 @@ public class GameScreenController implements Initializable {
                             if (alien.takeDamage(bullet.getDamage())) {
                                 playerScore += 10;
                                 destructions.add(alien.explode());
-                                System.out.println("Score: " + playerScore);
                             }
                             bullet.setY(-10);
                         }
@@ -111,7 +108,6 @@ public class GameScreenController implements Initializable {
                     if (bullet.getCharacterHit(playerShip, 20)) {
                         if (playerShip.takeDamage(bullet.getDamage())) {
                             destructions.add(playerShip.explode());
-                            System.out.println("OOF!");
                         }
                         bullet.setY(-10);
                     }
