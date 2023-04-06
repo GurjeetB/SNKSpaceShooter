@@ -1,5 +1,7 @@
 package ca.bcit.comp2522.termproject.snk;
 
+import java.util.Random;
+
 public class Alien extends Character {
     private static final int DEFAULT_FIRE_COOLDOWN = 100;
     private static final int DEFAULT_MOVEMENT_DIRECTION = 1;
@@ -13,7 +15,7 @@ public class Alien extends Character {
 
     public boolean isReadyToFire() {
         if (cooldownBeforeShooting == 0) {
-            cooldownBeforeShooting = DEFAULT_FIRE_COOLDOWN;
+            cooldownBeforeShooting = new Random().nextInt(50, 300);
             return true;
         } else {
             cooldownBeforeShooting -= 1;
