@@ -1,5 +1,6 @@
 package ca.bcit.comp2522.termproject.snk;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -106,5 +107,28 @@ public class Alien extends Character {
     @Override
     Destruction explode() {
         return new Destruction(positionX, positionY, "alien");
+    }
+
+    @Override
+    public String toString() {
+        return "Alien{" +
+                "cooldownBeforeShooting=" + cooldownBeforeShooting +
+                ", movementDirection=" + movementDirection +
+                "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Alien alien = (Alien) o;
+        return cooldownBeforeShooting == alien.cooldownBeforeShooting
+                && movementDirection == alien.movementDirection;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), cooldownBeforeShooting, movementDirection);
     }
 }
