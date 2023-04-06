@@ -38,8 +38,8 @@ public class Scoreboard implements Serializable {
     public void addScoreToList(Score score) {;
         topTenScores.add(score);
         sortScoresByHighest();
-        if (topTenScores.size() > 10) { // If topTenScores has more than ten cores
-            topTenScores.remove(topTenScores.size() + 1); // Removes the last entry from topTenScores
+        while (topTenScores.size() > 10) { // If topTenScores has more than ten cores
+            topTenScores.remove(topTenScores.size() - 1); // Removes the last entry from topTenScores
         }
     }
 
