@@ -63,6 +63,7 @@ public class GameScreenController implements Initializable {
         graphicsEngine.renderPlayer(playerShip);
         graphicsEngine.renderAliens(aliens);
         graphicsEngine.renderBullets(bullets);
+        graphicsEngine.renderScore(playerScore);
     }
 
     public void runAllGameLogic() {
@@ -131,7 +132,6 @@ public class GameScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         playerScore = 0;
         graphicsEngine = GraphicsEngine.getInstance(gameRoot);
-        GraphicsEngine.getInstance(gameRoot).renderScore(score); // added to render score
         testClass.start();
     }
 }

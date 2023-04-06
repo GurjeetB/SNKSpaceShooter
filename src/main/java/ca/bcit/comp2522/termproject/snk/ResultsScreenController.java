@@ -7,10 +7,6 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ResultsScreenController implements Initializable {
@@ -33,7 +29,7 @@ public class ResultsScreenController implements Initializable {
             output.close();
             System.out.println("Saved scoreboard in " + filePath);
         } catch (IOException e) {
-            System.out.println("Could not save scoreboard");
+            System.out.println("Could not save to " + filePath);
         }
     }
 
@@ -47,9 +43,9 @@ public class ResultsScreenController implements Initializable {
             fileIn.close();
             System.out.println("Opened scoreboard at" + filePath);
         } catch (IOException e) {
-            System.out.println("could not open scoreboard");
+            System.out.println("could not open " + filePath);
         } catch (ClassNotFoundException e) {
-            System.out.println("File is not a scoreboard");
+            System.out.println(filePath + "is not a scoreboard");
         }
         return result;
     }
@@ -58,6 +54,7 @@ public class ResultsScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Score scoreFromLastRun = new Score(ScoreStorage.getInstance().getScore(), ScoreStorage.getInstance().getName());
         Scoreboard mostRecentScoreboard = getScoreboardFromFile("scoreboard.ser");
+        System.out.println(scoreFromLastRun);
         mostRecentScoreboard.addScoreToList(scoreFromLastRun);
         saveScoreboardToFile(Scoreboard.getInstance(), "scoreboard.ser");
     }
