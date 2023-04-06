@@ -8,9 +8,11 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class GameScreenController implements Initializable {
+    private static final Random RANDOMIZER = new Random();
     private GraphicsEngine graphicsEngine;
     public AnchorPane gameRoot;
     ClassThatRunsAFunctionConstantly testClass = new ClassThatRunsAFunctionConstantly() {
@@ -67,7 +69,9 @@ public class GameScreenController implements Initializable {
         // Runs all possible game logic
         // Spawns a new alien if there is none
         if (aliens.size() == 0) {
-            aliens.add(new Alien(50, 100, 100));
+            for (int i = 0; i <= RANDOMIZER.nextInt(1,6); i++) {
+                aliens.add(new Alien(50, RANDOMIZER.nextInt(0, 640), i * 50));
+            }
         }
         // Makes aliens shoot if possible
         aliens.stream().filter(Alien::isReadyToFire).forEach(alien -> bullets.add(alien.shoot()));
