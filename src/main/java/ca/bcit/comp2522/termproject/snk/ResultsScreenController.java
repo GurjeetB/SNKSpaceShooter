@@ -54,8 +54,8 @@ public class ResultsScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Score scoreFromLastRun = new Score(ScoreStorage.getInstance().getScore(), ScoreStorage.getInstance().getName());
         Scoreboard mostRecentScoreboard = getScoreboardFromFile("scoreboard.ser");
-        System.out.println(scoreFromLastRun);
         mostRecentScoreboard.addScoreToList(scoreFromLastRun);
-        saveScoreboardToFile(Scoreboard.getInstance(), "scoreboard.ser");
+        System.out.println(mostRecentScoreboard);
+        saveScoreboardToFile(mostRecentScoreboard, "scoreboard.ser");
     }
 }
