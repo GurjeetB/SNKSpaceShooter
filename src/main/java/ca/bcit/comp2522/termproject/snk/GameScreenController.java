@@ -98,7 +98,7 @@ public class GameScreenController implements Initializable {
                             ++playerScore;
                             if (alien.takeDamage(bullet.getDamage())) {
                                 playerScore += 10;
-                                destructions.add(alien.explode());
+                                // destructions.add(alien.explode());
                             }
                             bullet.setY(-10);
                         }
@@ -107,7 +107,8 @@ public class GameScreenController implements Initializable {
                 case "alien" -> {
                     if (bullet.getCharacterHit(playerShip, 20)) {
                         if (playerShip.takeDamage(bullet.getDamage())) {
-                            destructions.add(playerShip.explode());
+                            stopGame();
+                            // destructions.add(playerShip.explode());
                         }
                         bullet.setY(-10);
                     }
@@ -116,9 +117,6 @@ public class GameScreenController implements Initializable {
         });
 
         aliens.removeIf(alien -> alien.getHealth() == 0);
-        if (playerShip.getHealth() == 0) {
-            stopGame();
-        }
     }
 
     public void stopGame() {
