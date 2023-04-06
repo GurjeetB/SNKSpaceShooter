@@ -58,7 +58,7 @@ public class ResultsScreenController implements Initializable {
         yourScoreWas.setText(String.format("%s", scoreFromLastRun.getScore()));
         Scoreboard mostRecentScoreboard = getScoreboardFromFile("scoreboard.ser");
         mostRecentScoreboard.addScoreToList(scoreFromLastRun);
-        System.out.println(mostRecentScoreboard);
+        mostRecentScoreboard.getTopTenScores().forEach(System.out::println);
         saveScoreboardToFile(mostRecentScoreboard, "scoreboard.ser");
     }
 }
