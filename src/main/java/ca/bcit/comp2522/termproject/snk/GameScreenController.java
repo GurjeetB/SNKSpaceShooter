@@ -24,6 +24,8 @@ public class GameScreenController implements Initializable {
     };
     private boolean playerIsMoving;
     private int playerMovementDirection;
+    private boolean playerIsShooting;
+    private int playerShootCooldown;
     private int playerScore;
     private final PlayerShip playerShip = new PlayerShip(100, 320, 370);
     private final ArrayList<Destruction> destructions = new ArrayList<>();
@@ -41,6 +43,9 @@ public class GameScreenController implements Initializable {
                 playerMovementDirection = 1;
                 playerIsMoving = true;
             }
+            case J -> {
+                playerIsShooting = true;
+            }
         }
     }
 
@@ -51,7 +56,7 @@ public class GameScreenController implements Initializable {
                 playerMovementDirection = 0;
                 playerIsMoving = false;
             }
-            case J -> {bullets.add(playerShip.shoot());}
+            case J -> {playerIsShooting = false;}
             case Y -> {stopGame();}
         }
     }
@@ -86,6 +91,14 @@ public class GameScreenController implements Initializable {
                 case 1 -> {playerShip.moveRight();}
                 case -1 -> {playerShip.moveLeft();}
             }
+        }
+
+        if (playerIsShooting && playerShootCooldown == 0) {
+            bullets.add(playerShip.shoot());
+            playerShootCooldown = 20;
+        }
+        if (playerShootCooldown > 0) {
+            playerShootCooldown--;
         }
 
         // Makes bullets move
