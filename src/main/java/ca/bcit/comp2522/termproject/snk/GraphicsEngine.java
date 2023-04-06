@@ -90,13 +90,13 @@ public class GraphicsEngine {
         });
     }
 
-    public void renderScore(int score) {
+    public void renderScore(int score, PlayerShip playerShip) {
         // Create a Text object to display the score
         Text scoreText = new Text("Score: " + score);
         scoreText.setFont(new Font(20));
         scoreText.setFill(Color.WHITE);
-        scoreText.setX(10);
-        scoreText.setY(30);
+        scoreText.setX(playerShip.getPositionX() - playerShip.getWidth());
+        scoreText.setY(playerShip.getPositionY() + 50);
         // Add the Text object to the list of all entities
         allEntities.add(scoreText);
     }
