@@ -48,13 +48,13 @@ public class Alien extends Character {
 
     @Override
     int moveLeft() {
-        positionX -= 1;
+        positionX -= 2;
         return positionX;
     }
 
     @Override
     int moveRight() {
-        positionX += 1;
+        positionX += 2;
         return positionX;
     }
 

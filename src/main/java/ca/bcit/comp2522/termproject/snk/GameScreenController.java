@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -68,7 +67,7 @@ public class GameScreenController implements Initializable {
         // Runs all possible game logic
         // Spawns a new alien if there is none
         if (aliens.size() == 0) {
-            aliens.add(new Alien(1, 100, 100));
+            aliens.add(new Alien(50, 100, 100));
         }
         // Makes aliens shoot if possible
         aliens.stream().filter(Alien::isReadyToFire).forEach(alien -> bullets.add(alien.shoot()));
