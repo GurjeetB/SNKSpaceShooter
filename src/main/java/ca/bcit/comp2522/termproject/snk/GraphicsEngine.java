@@ -5,6 +5,7 @@ import javafx.scene.Node;
  import javafx.scene.image.Image;
  import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
@@ -81,6 +82,10 @@ public class GraphicsEngine {
     public void renderBullets(ArrayList<Bullet> bulletList) {
         bulletList.forEach(bullet -> {
             Rectangle bulletSprite = new Rectangle(bullet.getX(), bullet.getY(), 5, 5);
+            switch (bullet.getBulletType()) {
+                case "alien" -> {bulletSprite.setFill(Color.RED);}
+                case "player" -> {bulletSprite.setFill(Color.YELLOW);}
+            }
             allEntities.add(bulletSprite);
         });
     }
@@ -89,6 +94,7 @@ public class GraphicsEngine {
         // Create a Text object to display the score
         Text scoreText = new Text("Score: " + score);
         scoreText.setFont(new Font(20));
+        scoreText.setFill(Color.WHITE);
         scoreText.setX(10);
         scoreText.setY(30);
         // Add the Text object to the list of all entities
