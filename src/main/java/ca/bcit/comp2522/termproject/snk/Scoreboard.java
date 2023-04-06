@@ -42,4 +42,11 @@ public class Scoreboard implements Serializable {
             topTenScores.remove(topTenScores.size() + 1); // Removes the last entry from topTenScores
         }
     }
+
+    @Override
+    public String toString() {
+        return "Scoreboard{"
+                + "topTenScores=" + topTenScores
+                + '}';
+    }
 }
